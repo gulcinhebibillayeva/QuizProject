@@ -1,0 +1,14 @@
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\bin\Debug\net8.0\QuizProject.exe
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\bin\Debug\net8.0\QuizProject.deps.json
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\bin\Debug\net8.0\QuizProject.runtimeconfig.json
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\bin\Debug\net8.0\QuizProject.dll
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\bin\Debug\net8.0\QuizProject.pdb
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\QuizProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\QuizProject.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\QuizProject.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\QuizProject.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\QuizProject.dll
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\refint\QuizProject.dll
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\QuizProject.pdb
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\QuizProject.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Step\c#\Tasks\QuizProject\QuizProject\obj\Debug\net8.0\ref\QuizProject.dll

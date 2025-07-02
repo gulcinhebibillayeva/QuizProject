@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "FullName": null,
+    "Username": "gulcin",
+    "Password": null,
+    "Role": 1,
+    "Created": "2025-07-02T03:14:14.0865901+04:00"
+  },
+  {
+    "Id": 2,
+    "FullName": null,
+    "Username": "gulcinhebibi",
+    "Password": "gulcinheb",
+    "Role": 1,
+    "Created": "2025-07-02T14:21:22.5779598+04:00"
+  },
+  {
+    "Id": 4,
+    "FullName": null,
+    "Username": "men ",
+    "Password": "1234",
+    "Role": 1,
+    "Created": "2025-07-02T16:01:11.1760527+04:00"
+  },
+  {
+    "Id": 5,
+    "FullName": null,
+    "Username": "gulcinhebibi12",
+    "Password": "1234",
+    "Role": 1,
+    "Created": "2025-07-02T17:23:15.4568358+04:00"
+  },
+  {
+    "Id": 6,
+    "FullName": null,
+    "Username": "admin",
+    "Password": "admin",
+    "Role": 0,
+    "Created": "2025-07-02T18:00:00+04:00"
+  }
+]
