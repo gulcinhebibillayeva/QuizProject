@@ -13,6 +13,234 @@
   },
   {
     "Id": 2,
+    "CategoryId": 1,
+    "Text": "Which shape has three sides?",
+    "Options": [
+      "Square",
+      "Triangle",
+      "Circle",
+      "Rectangle"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 3,
+    "CategoryId": 1,
+    "Text": "How many days are there in a leap year?",
+    "Options": [
+      "365",
+      "366",
+      "360",
+      "364"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 4,
+    "CategoryId": 1,
+    "Text": "Which ocean is the largest?",
+    "Options": [
+      "Atlantic",
+      "Indian",
+      "Arctic",
+      "Pacific"
+    ],
+    "CorrectOptionIndex": 3
+  },
+  {
+    "Id": 5,
+    "CategoryId": 1,
+    "Text": "What color are bananas when ripe?",
+    "Options": [
+      "Green",
+      "Yellow",
+      "Red",
+      "Purple"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 6,
+    "CategoryId": 1,
+    "Text": "What is the freezing point of water in \u00B0C?",
+    "Options": [
+      "0",
+      "32",
+      "100",
+      "-1"
+    ],
+    "CorrectOptionIndex": 0
+  },
+  {
+    "Id": 7,
+    "CategoryId": 1,
+    "Text": "Which animal is known as the King of the Jungle?",
+    "Options": [
+      "Elephant",
+      "Lion",
+      "Tiger",
+      "Bear"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 8,
+    "CategoryId": 1,
+    "Text": "How many continents are there on Earth?",
+    "Options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 9,
+    "CategoryId": 1,
+    "Text": "Which planet is closest to the Sun?",
+    "Options": [
+      "Venus",
+      "Mercury",
+      "Earth",
+      "Mars"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 10,
+    "CategoryId": 1,
+    "Text": "What do bees produce?",
+    "Options": [
+      "Milk",
+      "Honey",
+      "Silk",
+      "Wax"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 11,
+    "CategoryId": 1,
+    "Text": "What is 7 \u002B 8?",
+    "Options": [
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 12,
+    "CategoryId": 1,
+    "Text": "Which country is famous for pizza?",
+    "Options": [
+      "Germany",
+      "Italy",
+      "Spain",
+      "Greece"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 13,
+    "CategoryId": 1,
+    "Text": "How many hours are there in a day?",
+    "Options": [
+      "12",
+      "24",
+      "18",
+      "20"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 14,
+    "CategoryId": 1,
+    "Text": "What gas do humans need to breathe?",
+    "Options": [
+      "Nitrogen",
+      "Carbon Dioxide",
+      "Oxygen",
+      "Hydrogen"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 15,
+    "CategoryId": 1,
+    "Text": "Which instrument has keys?",
+    "Options": [
+      "Guitar",
+      "Drums",
+      "Piano",
+      "Violin"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 16,
+    "CategoryId": 1,
+    "Text": "Which month comes after July?",
+    "Options": [
+      "June",
+      "August",
+      "September",
+      "May"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 17,
+    "CategoryId": 1,
+    "Text": "What do you call a house made of ice?",
+    "Options": [
+      "Cabin",
+      "Igloo",
+      "Tent",
+      "Hut"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 18,
+    "CategoryId": 1,
+    "Text": "How many legs does a spider have?",
+    "Options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 19,
+    "CategoryId": 1,
+    "Text": "Which day comes after Wednesday?",
+    "Options": [
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "CorrectOptionIndex": 0
+  },
+  {
+    "Id": 20,
+    "CategoryId": 1,
+    "Text": "What is the currency of the USA?",
+    "Options": [
+      "Euro",
+      "Dollar",
+      "Pound",
+      "Yen"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 21,
     "CategoryId": 2,
     "Text": "What planet is known as the Red Planet?",
     "Options": [
@@ -24,15 +252,231 @@
     "CorrectOptionIndex": 1
   },
   {
-    "Id": 3,
-    "CategoryId": 1,
-    "Text": "Salam",
+    "Id": 22,
+    "CategoryId": 2,
+    "Text": "What is H2O commonly known as?",
     "Options": [
-      "s",
-      "a",
-      "l",
-      "a"
+      "Salt",
+      "Water",
+      "Sugar",
+      "Oxygen"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 23,
+    "CategoryId": 2,
+    "Text": "Which organ pumps blood?",
+    "Options": [
+      "Lung",
+      "Brain",
+      "Heart",
+      "Kidney"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 24,
+    "CategoryId": 2,
+    "Text": "What is the chemical symbol for Gold?",
+    "Options": [
+      "Ag",
+      "Au",
+      "Gd",
+      "Go"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 25,
+    "CategoryId": 2,
+    "Text": "What gas do plants absorb?",
+    "Options": [
+      "Oxygen",
+      "Nitrogen",
+      "Carbon Dioxide",
+      "Hydrogen"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 26,
+    "CategoryId": 2,
+    "Text": "What force keeps us on the ground?",
+    "Options": [
+      "Magnetism",
+      "Friction",
+      "Gravity",
+      "Electricity"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 27,
+    "CategoryId": 2,
+    "Text": "What is the center of an atom called?",
+    "Options": [
+      "Electron",
+      "Proton",
+      "Nucleus",
+      "Neutron"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 28,
+    "CategoryId": 2,
+    "Text": "Which is the hottest planet in our solar system?",
+    "Options": [
+      "Mercury",
+      "Venus",
+      "Mars",
+      "Jupiter"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 29,
+    "CategoryId": 2,
+    "Text": "What is the boiling point of water in \u00B0C?",
+    "Options": [
+      "50",
+      "75",
+      "100",
+      "125"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 30,
+    "CategoryId": 2,
+    "Text": "Which gas is most abundant in the Earth\u0027s atmosphere?",
+    "Options": [
+      "Oxygen",
+      "Carbon Dioxide",
+      "Nitrogen",
+      "Argon"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 31,
+    "CategoryId": 2,
+    "Text": "What part of the cell contains genetic material?",
+    "Options": [
+      "Nucleus",
+      "Cytoplasm",
+      "Membrane",
+      "Mitochondria"
     ],
     "CorrectOptionIndex": 0
+  },
+  {
+    "Id": 32,
+    "CategoryId": 2,
+    "Text": "What do bees collect and use to make honey?",
+    "Options": [
+      "Pollen",
+      "Nectar",
+      "Sap",
+      "Water"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 33,
+    "CategoryId": 2,
+    "Text": "What is the speed of light commonly denoted by?",
+    "Options": [
+      "c",
+      "v",
+      "l",
+      "s"
+    ],
+    "CorrectOptionIndex": 0
+  },
+  {
+    "Id": 34,
+    "CategoryId": 2,
+    "Text": "Which vitamin is produced when skin is exposed to sunlight?",
+    "Options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "CorrectOptionIndex": 3
+  },
+  {
+    "Id": 35,
+    "CategoryId": 2,
+    "Text": "What phenomenon causes objects to cast shadows?",
+    "Options": [
+      "Reflection",
+      "Refraction",
+      "Absorption",
+      "Blocking of light"
+    ],
+    "CorrectOptionIndex": 3
+  },
+  {
+    "Id": 36,
+    "CategoryId": 2,
+    "Text": "Which particle has a negative charge?",
+    "Options": [
+      "Proton",
+      "Neutron",
+      "Electron",
+      "Photon"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 37,
+    "CategoryId": 2,
+    "Text": "What is the hardest natural substance on Earth?",
+    "Options": [
+      "Gold",
+      "Iron",
+      "Diamond",
+      "Silver"
+    ],
+    "CorrectOptionIndex": 2
+  },
+  {
+    "Id": 38,
+    "CategoryId": 2,
+    "Text": "Which device measures atmospheric pressure?",
+    "Options": [
+      "Thermometer",
+      "Barometer",
+      "Hygrometer",
+      "Anemometer"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 39,
+    "CategoryId": 2,
+    "Text": "What is the primary source of energy for the Earth?",
+    "Options": [
+      "Moon",
+      "Sun",
+      "Stars",
+      "Wind"
+    ],
+    "CorrectOptionIndex": 1
+  },
+  {
+    "Id": 40,
+    "CategoryId": 2,
+    "Text": "What do we call molten rock beneath the Earth\u0027s surface?",
+    "Options": [
+      "Lava",
+      "Magma",
+      "Basalt",
+      "Granite"
+    ],
+    "CorrectOptionIndex": 1
   }
 ]

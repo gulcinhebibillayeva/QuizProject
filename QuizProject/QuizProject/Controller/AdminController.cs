@@ -13,15 +13,17 @@ public class AdminController
     private readonly IUserService _userService;
     private readonly ICategoryService _categoryService;
     private readonly IQuestionService _questionService;
-
+    private readonly IQuizService _quizService;
     public AdminController(
             IUserService userService,
             ICategoryService categoryService,
-            IQuestionService questionService)
+            IQuestionService questionService,
+            IQuizService quizService)
     {
         _userService = userService;
         _categoryService = categoryService;
         _questionService = questionService;
+        _quizService = quizService;
     }
 
     public void AdminMenu()
@@ -29,15 +31,17 @@ public class AdminController
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("===== ADMIN PANEL =====");
-            Console.WriteLine("1. Kateqoriya əlavə et");
-            Console.WriteLine("2. Kateqoriya sil");
-            Console.WriteLine("3. Sual əlavə et");
-            Console.WriteLine("4. Sual sil");
-            Console.WriteLine("5. İstifadəçiləri göstər");
-            Console.WriteLine("6. İstifadəçi sil");
-            Console.WriteLine("0. Çıxış");
-            Console.Write("Seçiminizi daxil edin: ");
+            Console.WriteLine("===== Admin menu =====");
+            Console.WriteLine("1. Add Category");
+            Console.WriteLine("2. Remove Category");
+            Console.WriteLine("3. Add Question");
+            Console.WriteLine("4. Remove Question");
+            Console.WriteLine("5. Show users");
+            Console.WriteLine("6. Remove Users");
+            Console.WriteLine("7. Show Questions");
+            Console.WriteLine("8. Add quiz");
+            Console.WriteLine("0. Back");
+            Console.Write("Enter your choice : ");
 
             string choice = Console.ReadLine();
 
@@ -59,18 +63,46 @@ public class AdminController
                     ShowUsers();
                     break;
                 case "6":
-                    RemoveUser();
+                    RemoveQuestion();
+                    break;
+                    case "7":
+                    ShowAllQuestions();
+                    break;
+                case "8":
+                    CreateQuiz();
                     break;
                 case "0":
                     return;
                 default:
-                    Console.WriteLine("Yanlış seçim!");
+                    Console.WriteLine("Wrong input!");
                     Thread.Sleep(1000);
                     break;
             }
         }
     }
 
+    private void ShowAllQuestions()
+    {
+        Console.Clear();
+        var all = _questionService.GetAll();
+        if (all == null || !all.Any())
+        {
+            Console.WriteLine("There is no found any question.");
+        }
+        else
+        {
+            Console.WriteLine("=== All Questions ===");
+            foreach (var q in all)
+            {
+                Console.WriteLine($"ID: {q.Id} | CatId: {q.CategoryId} | {q.Text}");
+                for (int i = 0; i < q.Options.Count; i++)
+                    Console.WriteLine($"\t{i + 1}. {q.Options[i]}");
+                Console.WriteLine(new string('-', 40));
+            }
+        }
+        Console.WriteLine("For continue press any key...");
+        Console.ReadKey();
+    }
     private void RemoveUser()
     {
         Console.Clear();
@@ -205,6 +237,89 @@ public class AdminController
 
     }
 
+
+    private void CreateQuiz()
+    {
+        Console.Clear();
+        var categories = _categoryService.GetAll();
+        if (categories.Count == 0)
+        {
+            Console.WriteLine("Category is not found.");
+            Thread.Sleep(1500);
+            return;
+        }
+        Console.WriteLine("Choose Category");
+        foreach(var c in categories)
+        {
+            Console.WriteLine($"{c.CategoryId}.{c.Name}");
+        }
+
+        Console.Write("Category ID: ");
+        if (!int.TryParse(Console.ReadLine(), out int categoryId))
+        {
+            Console.WriteLine("Wrong  ID");
+            Thread.Sleep(1500);
+            return;
+        }
+
+        var questions = _questionService.GetAll()
+       .Where(q => q.CategoryId == categoryId)
+       .ToList();
+        if (questions.Count < 20)
+        {
+            Console.WriteLine("Question count is less than 20 in this category.");
+            Thread.Sleep(1500);
+            return;
+        }
+        Console.WriteLine("Questions:");
+        foreach (var q in questions)
+        {
+            Console.WriteLine($"{q.Id}. {q.Text}");
+        }
+        Console.WriteLine("Enter 20 Id (with ,):");
+        string[] idStrings = Console.ReadLine().Split(',');
+
+        if (idStrings.Length != 20)
+        {
+            Console.WriteLine("Please enter 20 question id");
+            Thread.Sleep(1500);
+            return;
+        }
+        List<int> questionIds = new();
+        foreach (var idStr in idStrings)
+        {
+            if (int.TryParse(idStr.Trim(), out int qid))
+            {
+                if (questions.Any(q => q.Id == qid))
+                {
+                    questionIds.Add(qid);
+                }
+            }
+        }
+
+        if (questionIds.Count != 20)
+        {
+            Console.WriteLine("Some ids are wrong");
+            Thread.Sleep(1500);
+            return;
+        }
+
+        var quiz = new Quiz
+        {
+            quizId = _quizService.GetAll().Any()
+                 ? _quizService.GetAll().Max(q => q.quizId) + 1
+                 : 1,
+            CategoryId = categoryId,
+            QuestionIds = questionIds
+        };
+
+        _quizService.AddQuiz(quiz);
+        Console.WriteLine("Quiz created!");
+        Thread.Sleep(1500);
+
+
+
+    }
     private void AddCategory()
     {
         Console.Clear();
@@ -237,4 +352,6 @@ public class AdminController
         Thread.Sleep(1500);
 
     }
+
+   
 }

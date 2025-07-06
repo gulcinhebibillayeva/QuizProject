@@ -11,12 +11,14 @@ public class UserController
     private readonly ICategoryService _categoryService;
     private readonly IQuestionService _questionService;
     private readonly IUserService _userService;
-
-    public UserController(Services.Concret.UserService userService, ICategoryService categoryService, IQuestionService questionService)
+    private readonly IQuizService _quizService;
+   public UserController(Services.Concret.UserService userService, ICategoryService categoryService, IQuestionService questionService,IQuizService quizService)
     {
         _userService = userService;
         _categoryService = categoryService;
         _questionService = questionService;
+        _quizService = quizService;
+       
     }
 
     public User Login()
@@ -41,62 +43,75 @@ public class UserController
             return null;
         }
     }
-    public void StartQuiz(User user)
+
+    public void ShowAvailableQuizzes(User user)
     {
-        var categories = _categoryService.GetAll();
-        if (!categories.Any())
+        Console.Clear();
+        var quizzes = _quizService.GetAll();
+        if (!quizzes.Any())
         {
-            Console.WriteLine("There is no any category.");
+            Console.WriteLine("There is no found any quiz.");
             Thread.Sleep(1500);
             return;
         }
 
-        Console.WriteLine("This category is not found:");
-        foreach (var category in categories)
+        Console.WriteLine("===  Quizzes ===");
+        foreach (var q in quizzes)
         {
-            Console.WriteLine($"{category.CategoryId}. {category.Name}");
+            Console.WriteLine($"{q.quizId}. {q.title}");
         }
-        Console.Write("Enter id: ");
-        if (!int.TryParse(Console.ReadLine(), out int categoryId))
+        Console.Write("Enter quiz id: ");
+        if (int.TryParse(Console.ReadLine(), out int quizId))
         {
-            Console.WriteLine("Wrong choice.");
-            Thread.Sleep(1500);
-            return;
-        }
-        var questions = _questionService.GetAll()
-            .Where(q => q.CategoryId == categoryId)
-            .ToList();
-
-        if (!questions.Any())
-        {
-            Console.WriteLine("There is no any question in this category.");
-            Thread.Sleep(1500);
-            return;
-        }
-        int score = 0;
-
-        foreach (var question in questions)
-        {
-            Console.Clear();
-            Console.WriteLine(question.Text);
-
-            for (int i = 0; i < question.Options.Count; i++)
+            var quiz = _quizService.GetById(quizId);
+            if (quiz != null)
+                StartQuiz(quiz);
+            else
             {
-                Console.WriteLine($"{i + 1}. {question.Options[i]}");
+                Console.WriteLine("There is no found any quiz.");
+                Thread.Sleep(1500);
+            }
+        }
+    }
+    public void StartQuiz(Quiz quiz)
+    {
+        Console.Clear();
+        Console.WriteLine($"=== Quiz: {quiz.title} ===\n");
+
+        var allQuestions = _questionService.GetAll();
+        var quizQuestions = allQuestions
+                .Where(q => quiz.QuestionIds.Contains(q.Id))
+                .ToList();
+
+        int score = 0;
+        for (int i = 0; i < quizQuestions.Count; i++)
+        {
+            var q = quizQuestions[i];
+            Console.Clear();
+            Console.WriteLine($"Question {i + 1}/{quizQuestions.Count}: {q.Text}\n");
+            for (int opt = 0; opt < q.Options.Count; opt++)
+            {
+                Console.WriteLine($"{opt + 1}. {q.Options[opt]}");
             }
 
-            Console.Write("Enter your choice (1-4): ");
-            if (int.TryParse(Console.ReadLine(), out int userAnswer) && userAnswer - 1 == question.CorrectOptionIndex)
+            Console.Write("\nYour Answer (1-4): ");
+            if (int.TryParse(Console.ReadLine(), out int ans) &&
+                ans - 1 == q.CorrectOptionIndex)
             {
                 score++;
             }
+
+
+
         }
         Console.Clear();
-        Console.WriteLine($"End of quiz ! Your score: {score} / {questions.Count}");
-        Thread.Sleep(3000);
-
-
+        Console.WriteLine($"End of the quiz your score: {score} / {quizQuestions.Count}");
+        Console.WriteLine("For continiue press any key...");
+        Console.ReadLine();
     }
-    
 
+    internal void StartQuiz(User user)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -118,9 +118,10 @@ var database = new QuizDatabase();
 var userService = new UserService(database);
 var categoryService = new CategoryService(database);
 var questionService = new QuestionService(database);
+var quizService = new QuizService(database);
 
-var userController = new UserController(userService, categoryService, questionService);
-var adminController = new AdminController(userService, categoryService, questionService);
+var userController = new UserController(userService, categoryService, questionService,quizService);
+var adminController = new AdminController(userService, categoryService, questionService,quizService);
 
 while (true)
 {
@@ -128,18 +129,18 @@ while (true)
     Console.WriteLine("=============== QUIZ APP ===============");
     Console.WriteLine("1. Admin");
     Console.WriteLine("2. User");
-    Console.WriteLine("0. Çıxış");
-    Console.Write("Seçiminizi edin: ");
+    Console.WriteLine("0. Back");
+    Console.Write("Enter your choice: ");
     string roleChoice = Console.ReadLine();
 
     switch (roleChoice)
     {
         case "1":
             Console.Clear();
-            Console.Write("Admin istifadəçi adı: ");
+            Console.Write("Admin username: ");
             string adminUsername = Console.ReadLine();
 
-            Console.Write("Admin şifrə: ");
+            Console.Write("Admin password: ");
             string adminPassword = Console.ReadLine();
 
             try
@@ -147,13 +148,13 @@ while (true)
                 var admin = userService.Login(adminUsername, adminPassword);
                 if (admin.Role == UserRole.Admin)
                 {
-                    Console.WriteLine("Admin girişi uğurludur!");
+                    Console.WriteLine("Admin login syccessful!");
                     Thread.Sleep(1000);
                     adminController.AdminMenu();
                 }
                 else
                 {
-                    Console.WriteLine("Bu istifadəçi admin deyil.");
+                    Console.WriteLine("This user is not admin.");
                     Thread.Sleep(1500);
                 }
             }
@@ -168,21 +169,21 @@ while (true)
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("==== İSTİFADƏÇİ MENYUSU ====");
-                Console.WriteLine("1. Qeydiyyat (Sign up)");
-                Console.WriteLine("2. Giriş (Sign in)");
+                Console.WriteLine("==== User Menu====");
+                Console.WriteLine("1. Sign up");
+                Console.WriteLine("2. Sign in");
                 Console.WriteLine("0. Geri");
-                Console.Write("Seçiminizi edin: ");
+                Console.Write("Choose any choice : ");
                 string userChoice = Console.ReadLine();
 
                 switch (userChoice)
                 {
                     case "1":
                         Console.Clear();
-                        Console.Write("İstifadəçi adı: ");
+                        Console.Write("Username: ");
                         string username = Console.ReadLine();
 
-                        Console.Write("Şifrə: ");
+                        Console.Write("password: ");
                         string password = Console.ReadLine();
 
                         var newUser = new User
@@ -196,7 +197,7 @@ while (true)
                         try
                         {
                             userService.Register(newUser);
-                            Console.WriteLine("Qeydiyyat uğurludur.");
+                            Console.WriteLine("Registration completed successfully.");
                         }
                         catch (Exception ex)
                         {
@@ -207,22 +208,22 @@ while (true)
 
                     case "2":
                         Console.Clear();
-                        Console.Write("İstifadəçi adı: ");
+                        Console.Write("Username: ");
                         string loginUsername = Console.ReadLine();
 
-                        Console.Write("Şifrə: ");
+                        Console.Write("password: ");
                         string loginPassword = Console.ReadLine();
 
                         try
                         {
                             var user = userService.Login(loginUsername, loginPassword);
-                            Console.WriteLine($"Xoş gəldiniz, {user.Username}!");
+                            Console.WriteLine($"Welcome, {user.Username}!");
                             Thread.Sleep(1000);
-                            userController.StartQuiz(user);
+                            userController.ShowAvailableQuizzes(user);
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"Xəta: {ex.Message}");
+                            Console.WriteLine($"Error: {ex.Message}");
                             Thread.Sleep(1500);
                         }
                         break;
@@ -231,7 +232,7 @@ while (true)
                         goto EndUserMenu;
 
                     default:
-                        Console.WriteLine("Yanlış seçim.");
+                        Console.WriteLine("Wrong choice.");
                         Thread.Sleep(1000);
                         break;
                 }
@@ -240,12 +241,12 @@ while (true)
             break;
 
         case "0":
-            Console.WriteLine("Çıxılır...");
+            Console.WriteLine("Back...");
             Thread.Sleep(1000);
             return;
 
         default:
-            Console.WriteLine("Yanlış seçim.");
+            Console.WriteLine(" Wrong choice.");
             Thread.Sleep(1000);
             break;
     }
